@@ -1,17 +1,19 @@
 class Grid
   def initialize(size, rows)
     @size = size
-    @rows = rows
     @characters = ['p', 'm']
-  end
-
-  def vertical_slots
-    @characters.map do |character|
-      @rows.join.chars.find_index(character) / @size
-    end
+    @slots = rows.join.chars
   end
 
   def vertical_distance
-    vertical_slots.reduce(:-)
+    @characters.map do |character|
+      @slots.find_index(character) / @size
+    end.reduce(:-)
+  end
+
+  def horizontal_distance
+    @characters.map do |character|
+      @slots.find_index(character) % @size
+    end.reduce(:-)
   end
 end

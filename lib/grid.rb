@@ -16,4 +16,14 @@ class Grid
       @slots.find_index(character) % @size
     end.reduce(:-)
   end
+
+  def vertical_direction
+    return 'DOWN' if vertical_distance.positive?
+    'UP'
+  end
+
+  def horizontal_direction
+    return 'RIGHT' if horizontal_distance.positive?
+    'LEFT'
+  end
 end

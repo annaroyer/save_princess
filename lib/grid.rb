@@ -26,4 +26,10 @@ class Grid
     return 'RIGHT' if horizontal_distance.positive?
     'LEFT'
   end
+
+  def full_path
+    Array.new(vertical_distance.abs, vertical_direction)
+    .concat(Array.new(horizontal_distance.abs, horizontal_direction))
+    .join("\n")
+  end
 end

@@ -26,4 +26,10 @@ class GridTest < Minitest::Test
 
     assert_equal 'LEFT', grid.horizontal_direction
   end
+
+  def test_it_prints_the_full_path_to_the_princess
+    grid = Grid.new(3, ["p--", "-m-", "---"])
+
+    assert_equal "UP\nLEFT", grid.full_path
+  end
 end

@@ -26,4 +26,10 @@ class GridTest < Minitest::Test
 
     assert_equal "LEFT", grid.next_move
   end
+
+  def test_it_finds_the_princess_when_bot_and_princess_are_randomly_placed
+    grid = Grid.new(5, 2, 3, ['-----','-----', 'p--m-', '-----', '-----'])
+
+    assert_equal "LEFT\nLEFT\nLEFT", grid.full_path
+  end
 end

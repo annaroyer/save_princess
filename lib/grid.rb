@@ -1,35 +1,23 @@
 class Grid
   def initialize(size, rows)
     @size = size
-    @characters = ['p', 'm']
-    @spaces = rows.join
+    @distance = size / 2
+    @princess_corner = rows.join.index('p')
   end
 
-  def vertical_distance
-    @characters.map do |character|
-      @spaces.index(character) / @size
-    end.reduce(:-)
+  def vertical
+    return 'UP' if (@princess_corner / @size).zero?
+    'DOWN'
   end
 
-  def horizontal_distance
-    @characters.map do |character|
-      @spaces.index(character) % @size
-    end.reduce(:-)
-  end
-
-  def vertical_direction
-    return 'DOWN' if vertical_distance.positive?
-    'UP'
-  end
-
-  def horizontal_direction
-    return 'RIGHT' if horizontal_distance.positive?
-    'LEFT'
+  def horizontal
+    return 'LEFT' if (@princess_corner % @size).zero?
+    'RIGHT'
   end
 
   def full_path
-    Array.new(vertical_distance.abs, vertical_direction)
-    .concat(Array.new(horizontal_distance.abs, horizontal_direction))
+    Array.new(@distance, vertical)
+    .concat(Array.new(@distance, horizontal))
     .join("\n")
   end
 end

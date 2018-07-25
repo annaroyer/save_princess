@@ -14,13 +14,15 @@ class Grid
     vertical(bot_row) || horizontal(bot_column)
   end
 
-  def vertical(bot_row = @from_center)
-    return 'UP' if @princess_row < bot_row
-    return 'DOWN' if @princess_row > bot_row
-  end
+  private
 
-  def horizontal(bot_column = @from_center)
-    return 'LEFT' if @princess_column < bot_column
-    return 'RIGHT' if @princess_column > bot_column
-  end
+    def vertical(bot_row = @from_center)
+      return 'UP' if @princess_row < bot_row
+      return 'DOWN' if @princess_row > bot_row
+    end
+
+    def horizontal(bot_column = @from_center)
+      return 'LEFT' if @princess_column < bot_column
+      return 'RIGHT' if @princess_column > bot_column
+    end
 end

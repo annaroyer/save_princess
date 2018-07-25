@@ -1,17 +1,11 @@
 require './lib/grid.rb'
 
-def nextMove(n,r,c,grid)
-  puts Grid.new(n, grid).next_move(r, c)
+size = gets.to_i
+
+bot_row, bot_column = gets.strip.split.map(&:to_i)
+
+rows = Array.new(size).map do |row|
+  gets.chomp
 end
 
-n = gets.to_i
-
-r,c = gets.strip.split.map {|num| num.to_i}
-
-grid = Array.new(n)
-
-(0...n).each do |i|
-    grid[i] = gets
-end
-
-nextMove(n,r,c,grid)
+puts Grid.new(size, rows).next_move(bot_row, bot_column)

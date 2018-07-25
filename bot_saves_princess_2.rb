@@ -4,14 +4,15 @@ def nextMove(n,r,c,grid)
   puts Grid.new(n, grid).next_move(r, c)
 end
 
-n = gets.to_i
+size = gets.to_i
 
-r,c = gets.strip.split.map {|num| num.to_i}
+bot_row, bot_column = gets.strip.split.map {|num| num.to_i}
 
-grid = Array.new(n)
+rows = Array.new(n)
 
 (0...n).each do |i|
-    grid[i] = gets
+  grid[i] = gets
 end
 
-nextMove(n,r,c,grid)
+grid = Grid.new(size, rows)
+puts grid.next_move(bot_row, bot_column)

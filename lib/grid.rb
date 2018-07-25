@@ -1,7 +1,7 @@
 class Grid
   def initialize(size, rows)
     @from_center = size / 2
-    @princess_space = rows.map(&:chomp).join.index('p')
+    @princess_space = rows.join.index('p')
     @princess_row = @princess_space / size
     @princess_column = @princess_space % size
   end

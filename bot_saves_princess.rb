@@ -1,15 +1,7 @@
 require './lib/grid.rb'
 
-def displayPathtoPrincess(n,grid)
-  puts Grid.new(n, grid).full_path
+rows = Array.new(gets.to_i).map do |row|
+  gets.strip
 end
 
-m = gets.to_i
-
-grid = Array.new(m)
-
-(0...m).each do |i|
-    grid[i] = gets.strip
-end
-
-displayPathtoPrincess(m,grid)
+puts Grid.new(rows.size, rows).full_path
